@@ -14,22 +14,3 @@ export function Header({ title, menuOptions }: Props) {
     </header>
   );
 }
-
-// export class Headerx {
-//   options: MenuOption[];
-
-//   render() {
-//     super.render();
-//     const elements = [new Menu('header', this.options)];
-//     console.log('Header', elements);
-//   }
-
-//   createTemplate() {
-//     return `
-//     <header>
-//       <h1>Learning Typescript</h1>
-
-//     </header>
-//     `;
-//   }
-// }

@@ -16,7 +16,7 @@ export function Greetings() {
   };
 
   return (
-    <section className="greetings">
+    <section aria-label="greetings" className="greetings">
       <p>Hola, {user ? user : 'Amigo'}</p>
       <label htmlFor=""></label>
       <input type="text" onChange={handleChange} />
