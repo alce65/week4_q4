@@ -1,0 +1,24 @@
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
+
+const Todo = lazy(() => import('../../pages/todo/todo'));
+const Home = lazy(() => import('../../pages/home/home'));
+const About = lazy(() => import('../../pages/about/about'));
+const Products = lazy(() => import('../../pages/products/products'));
+
+export function AppRoutes() {
+  return (
+    <main>
+      <Suspense>
+        <Routes>
+          <Route path="/" element={<Home></Home>}></Route>
+          <Route path="/home" element={<Home></Home>}></Route>
+          <Route path="/todo" element={<Todo></Todo>}></Route>
+          <Route path="/about" element={<About></About>}></Route>
+          <Route path="/products" element={<Products></Products>}></Route>
+          <Route path="*" element={<Navigate to={'/'}></Navigate>}></Route>
+        </Routes>
+      </Suspense>
+    </main>
+  );
+}

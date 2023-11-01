@@ -1,28 +1,27 @@
 import { MenuOption } from '../../types/menu.option';
-import { Counter } from '../counter/counter';
-import { Footer } from '../footer/footer';
-import { UserForm } from '../form/user.form';
-import { Greetings } from '../greetings/greetings';
 import { Header } from '../header/header';
+import { Footer } from '../footer/footer';
 import './App.css';
+import { AppRoutes } from '../app.routes/app.routes';
+import { Menu } from '../menu/menu';
 
 export function App() {
   const title = 'Learning React';
   const menuOptions: MenuOption[] = [
     { label: 'Home', path: '/' },
-    { label: 'Productos', path: '/products.html' },
-    { label: 'Clientes', path: '/clients.html' },
-    { label: 'GoT', path: '/got.html' },
-    { label: 'ToDo', path: '/todo.html' },
-    { label: 'Acerca de', path: '/about.html' },
+    { label: 'Productos', path: '/products' },
+    { label: 'Clientes', path: '/clients' },
+    { label: 'GoT', path: '/got' },
+    { label: 'ToDo', path: '/todo' },
+    { label: 'Acerca de', path: '/about' },
   ];
 
   return (
     <div>
-      <Header title={title} menuOptions={menuOptions}></Header>
-      <Counter></Counter>
-      <Greetings></Greetings>
-      <UserForm></UserForm>
+      <Header title={title}>
+        <Menu options={menuOptions}></Menu>
+      </Header>
+      <AppRoutes></AppRoutes>
       <Footer></Footer>
     </div>
   );

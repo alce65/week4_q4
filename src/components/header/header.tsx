@@ -1,16 +1,14 @@
-import { MenuOption } from '../../types/menu.option';
-import { Menu } from '../menu/menu';
 import './header.scss';
 
 type Props = {
   title: string;
-  menuOptions: MenuOption[];
+  children: JSX.Element;
 };
-export function Header({ title, menuOptions }: Props) {
+export function Header({ title, children }: Props) {
   return (
     <header>
       <h1>{title}</h1>
-      <Menu options={menuOptions}></Menu>
+      {children}
     </header>
   );
 }
