@@ -16,6 +16,11 @@ export function UserForm() {
   };
 
   const [userState, setUserState] = useState(initialState);
+  const isDisable =
+    initialState.userName === userState.userName ||
+    initialState.userSurname === userState.userSurname ||
+    initialState.email === userState.email ||
+    initialState.isOk === userState.isOk;
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
@@ -39,7 +44,7 @@ export function UserForm() {
   };
 
   return (
-    <form className="user-form" onSubmit={handleSubmit}>
+    <form className="user-form" role="form" onSubmit={handleSubmit}>
       <fieldset>
         <legend>User data</legend>
         <div className="form-control">
@@ -149,7 +154,9 @@ export function UserForm() {
         <label htmlFor="is-ok">Estas de acuerdo con .... </label>
       </div>
 
-      <button type="submit">Enviar</button>
+      <button type="submit" disabled={isDisable}>
+        Enviar
+      </button>
     </form>
   );
 }
