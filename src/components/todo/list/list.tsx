@@ -1,11 +1,14 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { TaskCard } from '../task.card/task.card';
 import { Add } from '../add/add';
 import './list.scss';
-import { useTasks } from '../../../hooks/use.tasks';
+
+import { AppContext } from '../../../context/app.context';
 
 export function List() {
-  const { tasks, loadTasks, addTask, updateTask, deleteTask } = useTasks();
+  const {
+    tasksTools: { tasks, loadTasks },
+  } = useContext(AppContext);
 
   useEffect(() => {
     loadTasks();
@@ -15,16 +18,11 @@ export function List() {
     <div>
       <details>
         <summary>Añadir</summary>
-        <Add addTask={addTask}></Add>
+        <Add></Add>
       </details>
       <ul className="todo-list">
         {tasks.map((item) => (
-          <TaskCard
-            key={item.id}
-            task={item}
-            updateTask={updateTask}
-            deleteTask={deleteTask}
-          ></TaskCard>
+          <TaskCard key={item.id} task={item}></TaskCard>
         ))}
       </ul>
     </div>

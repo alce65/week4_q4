@@ -1,13 +1,17 @@
 import './task.card.scss';
 import { Task } from '../../../models/task';
+import { useContext } from 'react';
+import { AppContext } from '../../../context/app.context';
 
 type Props = {
   task: Task;
-  deleteTask: (_id: Task['id']) => void;
-  updateTask: (_id: Task['id'], _task: Task) => void;
 };
 
-export function TaskCard({ task, deleteTask, updateTask }: Props) {
+export function TaskCard({ task }: Props) {
+  const {
+    tasksTools: { updateTask, deleteTask },
+  } = useContext(AppContext);
+
   const handleDelete = () => {
     deleteTask(task.id);
   };

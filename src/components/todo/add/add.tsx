@@ -1,11 +1,12 @@
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useContext } from 'react';
 import { Task } from '../../../models/task';
+import { AppContext } from '../../../context/app.context';
 
-type Props = {
-  addTask: (_task: Partial<Task>) => void;
-};
+export function Add() {
+  const {
+    tasksTools: { addTask },
+  } = useContext(AppContext);
 
-export function Add({ addTask }: Props) {
   const handleSubmit = (event: SyntheticEvent) => {
     const form = event.target as HTMLFormElement;
     event.preventDefault();
