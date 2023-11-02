@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from 'react';
-import './user.form.scss';
 import { User } from '../../models/user';
+import './user.form.scss';
 
 export function UserForm() {
   const initialState: User = {
@@ -17,23 +17,30 @@ export function UserForm() {
 
   const [userState, setUserState] = useState(initialState);
   const isDisable =
-    initialState.userName === userState.userName ||
-    initialState.userSurname === userState.userSurname ||
-    initialState.email === userState.email ||
-    initialState.isOk === userState.isOk;
+    !userState.userName ||
+    !userState.userSurname ||
+    !userState.passwd ||
+    !userState.email ||
+    !userState.country;
+  !userState.isOk || !userState.turn || !userState.course;
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
-    // const formElement = event.target as HTMLFormElement;
+    const user = initialState;
+    const formElement = event.target as HTMLFormElement;
 
-    // for (const key in user) {
-    //   const key2 = key as keyof typeof user;
-    //   const value = (formElement.elements.namedItem(key) as HTMLFormElement)
-    //     .value;
-    //   user[key2] = value;
-    // }
+    let key: keyof User;
+    for (key in user) {
+      const element = formElement.elements.namedItem(key) as HTMLFormElement;
 
-    console.log(userState);
+      if (key !== 'isOk') {
+        user[key] = element.value;
+      } else {
+        user[key] = element.checked as boolean;
+      }
+    }
+    console.log('Not controlled data', user);
+    console.log('controlled state', userState);
   };
 
   const handleChange = (ev: SyntheticEvent) => {
