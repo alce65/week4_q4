@@ -10,7 +10,7 @@ export function App() {
   const menuOptions: MenuOption[] = [
     { label: 'Home', path: '/' },
     { label: 'Productos', path: '/products' },
-    { label: 'Clientes', path: '/clients' },
+    { label: 'Gentlemen', path: '/gents' },
     { label: 'GoT', path: '/got' },
     { label: 'ToDo', path: '/todo' },
     { label: 'Acerca de', path: '/about' },
