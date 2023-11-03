@@ -2,10 +2,22 @@ import { Note } from '../../models/note';
 
 export type ActionNotesTypes = 'load' | 'create' | 'update' | 'delete';
 
-export type ActionNotes = {
-  type: ActionNotesTypes;
-  payload?: Note[] | Note | Note['id'];
+type ActionNotesAll = {
+  type: 'load';
+  payload: Note[];
 };
+
+type ActionNotesNote = {
+  type: 'create' | 'update';
+  payload: Note;
+};
+
+type ActionNotesId = {
+  type: 'delete';
+  payload: Note['id'];
+};
+
+export type ActionNotes = ActionNotesAll | ActionNotesNote | ActionNotesId;
 
 export const loadActionCreator = (payload: Note[]): ActionNotes => ({
   type: 'load',

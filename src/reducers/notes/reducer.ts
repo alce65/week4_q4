@@ -12,22 +12,16 @@ export function notesReducer(
 ): Note[] {
   switch (type) {
     case 'load':
-      return payload as Note[];
+      return payload;
 
     case 'create':
-      return [...state, payload as Note];
+      return [...state, payload];
 
     case 'update':
-      // eslint-disable-next-line no-case-declarations
-      const updatedNote = payload as Note;
-      return state.map((item) =>
-        item.id === updatedNote.id ? updatedNote : item
-      );
+      return state.map((item) => (item.id === payload.id ? payload : item));
 
     case 'delete':
-      // eslint-disable-next-line no-case-declarations
-      const id = payload as Note['id'];
-      return state.filter((item) => item.id !== id);
+      return state.filter((item) => item.id !== payload);
 
     default:
       return [...state];
