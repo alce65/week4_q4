@@ -13,6 +13,7 @@ export function App() {
     { label: 'Gentlemen', path: '/gents' },
     { label: 'GoT', path: '/got' },
     { label: 'ToDo', path: '/todo' },
+    { label: 'Notes', path: '/notes' },
     { label: 'TelePhone', path: '/phone' },
     { label: 'Acerca de', path: '/about' },
   ];
