@@ -2,6 +2,7 @@ import './task.card.scss';
 import { Task } from '../../../models/task';
 import { useContext } from 'react';
 import { AppContext } from '../../../context/app.context';
+import { Link } from 'react-router-dom';
 
 type Props = {
   task: Task;
@@ -43,6 +44,9 @@ export function TaskCard({ task }: Props) {
       </p>
       <p role="button" onClick={handleDelete}>
         🗑️
+      </p>
+      <p>
+        <Link to={'/details/' + task.id}>Detalles</Link>
       </p>
     </li>
   );

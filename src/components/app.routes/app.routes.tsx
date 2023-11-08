@@ -9,6 +9,8 @@ const Gents = lazy(() => import('../../gentelmen/pages/gentlemen'));
 const Products = lazy(() => import('../../pages/products/products'));
 const Phone = lazy(() => import('../../phone/pages/phone'));
 
+const Details = lazy(() => import('../../pages/details/details'));
+
 export function AppRoutes() {
   return (
     <main>
@@ -22,6 +24,7 @@ export function AppRoutes() {
           <Route path="/products" element={<Products></Products>}></Route>
           <Route path="/gents" element={<Gents></Gents>}></Route>
           <Route path="/phone" element={<Phone></Phone>}></Route>
+          <Route path="/details/:id" element={<Details></Details>}></Route>
           <Route path="*" element={<Navigate to={'/'}></Navigate>}></Route>
         </Routes>
       </Suspense>

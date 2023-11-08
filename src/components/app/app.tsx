@@ -1,7 +1,8 @@
 import { MenuOption } from '../../types/menu.option';
 import { Header } from '../header/header';
 import { Footer } from '../footer/footer';
-import './App.css';
+import '../../index.scss';
+import './App.scss';
 import { AppRoutes } from '../app.routes/app.routes';
 import { Menu } from '../menu/menu';
 
